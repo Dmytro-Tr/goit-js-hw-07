@@ -24,6 +24,8 @@ function createMarcup() {
   createBoxes(input.value);
 }
 
+const fragment = document.createDocumentFragment();
+
 function createBoxes(amount) {
   input.value = '';
   clear();
@@ -34,9 +36,10 @@ function createBoxes(amount) {
     box.style.height = `${sizes}px`;
     box.style.backgroundColor = getRandomHexColor();
 
-    boxes.append(box);
+    fragment.append(box);
     sizes += 10;
   }
+  boxes.append(fragment);
 }
 
 function getRandomHexColor() {
